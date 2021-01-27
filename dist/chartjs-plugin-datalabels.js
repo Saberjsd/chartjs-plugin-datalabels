@@ -8,13 +8,9 @@
 typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('chart.js')) :
 typeof define === 'function' && define.amd ? define(['chart.js'], factory) :
 (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.ChartDataLabels = factory(global.Chart));
-}(this, (function (Chart) { 'use strict';
+}(this, (function (chart_js) { 'use strict';
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var Chart__default = /*#__PURE__*/_interopDefaultLegacy(Chart);
-
-var helpers = Chart__default['default'].helpers;
+var helpers = chart_js.Chart.helpers;
 
 var devicePixelRatio = (function() {
   if (typeof window !== 'undefined') {
@@ -361,7 +357,7 @@ var positioners = {
   }
 };
 
-var helpers$1 = Chart__default['default'].helpers;
+var helpers$1 = chart_js.Chart.helpers;
 var rasterize = utils.rasterize;
 
 function boundingRects(model) {
@@ -406,13 +402,13 @@ function getScaleOrigin(el, context) {
 }
 
 function getPositioner(el) {
-  if (el instanceof Chart__default['default'].elements.ArcElement) {
+  if (el instanceof chart_js.Chart.elements.ArcElement) {
     return positioners.arc;
   }
-  if (el instanceof Chart__default['default'].elements.PointElement) {
+  if (el instanceof chart_js.Chart.elements.PointElement) {
     return positioners.point;
   }
-  if (el instanceof Chart__default['default'].elements.BarElement) {
+  if (el instanceof chart_js.Chart.elements.BarElement) {
     return positioners.bar;
   }
   return positioners.fallback;
@@ -595,7 +591,7 @@ helpers$1.merge(Label.prototype, {
     var index = me._index;
     var resolve = helpers$1.resolve;
     var font = helpers$1.toFont(resolve([config.font, {}], context, index));
-    var color = resolve([config.color, Chart__default['default'].defaults.font.color], context, index);
+    var color = resolve([config.color, chart_js.Chart.defaults.font.color], context, index);
 
     return {
       align: resolve([config.align, 'center'], context, index),
@@ -704,7 +700,7 @@ helpers$1.merge(Label.prototype, {
   }
 });
 
-var helpers$2 = Chart__default['default'].helpers;
+var helpers$2 = chart_js.Chart.helpers;
 
 var MIN_INTEGER = Number.MIN_SAFE_INTEGER || -9007199254740991; // eslint-disable-line es/no-number-minsafeinteger
 var MAX_INTEGER = Number.MAX_SAFE_INTEGER || 9007199254740991;  // eslint-disable-line es/no-number-maxsafeinteger
@@ -1020,7 +1016,7 @@ var layout = {
   }
 };
 
-var helpers$3 = Chart__default['default'].helpers;
+var helpers$3 = chart_js.Chart.helpers;
 
 var formatter = function(value) {
   if (helpers$3.isNullOrUndef(value)) {
@@ -1092,7 +1088,7 @@ var defaults = {
  * @see https://github.com/chartjs/Chart.js/issues/4176
  */
 
-var helpers$4 = Chart__default['default'].helpers;
+var helpers$4 = chart_js.Chart.helpers;
 var EXPANDO_KEY = '$datalabels';
 var DEFAULT_KEY = '$default';
 
